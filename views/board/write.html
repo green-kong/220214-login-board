@@ -3,7 +3,7 @@
 <form method="post" action="/board/write">
   <ul>
     <li>제목 : <input type="text" name="subject" /></li>
-    <input type="hidden" name="username" />
+    <input type="hidden" name="username" value="{{user.username}}" />
     <li>작성자 : {{user.username}}</li>
     <li>
       본문 :
