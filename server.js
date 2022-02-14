@@ -26,8 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.render('index.html');
+app.get('/user/login', (req, res) => {
+  res.render('user/login.html');
 });
 
 app.listen(3000);
