@@ -9,11 +9,11 @@ router.get(`/login`,(req,res)=>{
 
 router.post(`/login`,(req,res)=>{
     let {userid,userpw} = req.body
-    let [item1] = user.filter(a=>(a.userid == userid))
-    let [item2] = user.filter(b=>(b.userpw==userpw))
-    if (item1 != undefined) {
-        if (item2 != undefined) {
-            req.session.user = {...item1}         
+    let [item] = user.filter(a=>(a.userid == userid && a.userpw==userpw))
+    // let [item2] = user.filter(b=>(b.item1.pw==userpw))
+    if (item != undefined) {
+        if (item.pw != undefined) {
+            req.session.user = {...item}         
             res.redirect(`/`)
         } else {
             res.send(alertmove(`/user/login`,`비밀번호가 일치하지 않습니다.`))
