@@ -1,0 +1,15 @@
+{% extends "../template/_layout.html" %}
+{% block content %}
+<h2>작성 페이지</h2>
+<form method="post" action="/board/write">
+    <ul>
+        <li>
+            제목 : <input type="text" name="subject">
+        </li>
+        <li>
+            작성자 : <input type="text" name="username">
+        </li>
+    </ul>
+    <input type="submit" value="글쓰기">
+</form>
+{% endblock %}
