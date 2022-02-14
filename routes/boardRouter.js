@@ -15,7 +15,8 @@ router.use('/', (req, res, next) => {
 router.get('/list', (req, res) => {
   const { user } = req.session;
   res.render('../views/board/list', {
-    list: list,
+    list,
+    user,
   });
   console.log(req.session);
 });
@@ -28,25 +29,29 @@ router.get('/write', (req, res) => {
 router.post('/write', (req, res) => {
   list.push(req.body);
   console.log(list);
-  res.redirect('list');
+  res.send(
+    alertmove(`/board/view?index=${list.length}`, '글작성이 완료 되었습니다.')
+  );
 });
 
 router.get('/view', (req, res) => {
+  const { user } = req.session;
   const index = req.query.index;
-  console.log(index);
   const view = list[index - 1];
   res.render('../views/board/view', {
-    index: index,
+    index,
     data: view,
+    user,
   });
 });
 
 router.post('/delete', (req, res) => {
   const { user } = req.session;
   const index = req.body.index - 1;
+
   if (list[index].userid === user.userid) {
     list.splice(index, 1); //인덱스부터 시작해서 1개 제거
-    res.redirect('list');
+    res.send(alertmove('board/list', '글 삭제가 완료되었습니다.'));
   } else {
     res.send(
       alertmove(
@@ -63,7 +68,6 @@ router.get('/update', (req, res) => {
   console.log(list);
   if (list[index - 1].userid === user.userid) {
     const view = list[index - 1]; //현재 보고있는 글정보
-    console.log('view 출력 : ', view);
     res.render('../views/board/update', {
       index: index,
       data: view,
@@ -87,7 +91,9 @@ router.post('/update', (req, res) => {
   };
 
   list[index - 1] = item; //새 객체를 list에 추가
-  res.redirect(`view?index=${index}`);
+  res.send(
+    alertmove(`board/view?index=${index}`, '글 수정이 완료 되었습니다.')
+  );
 });
 
 module.exports = router;
