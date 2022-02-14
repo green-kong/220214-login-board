@@ -16,6 +16,6 @@ const list = [
     },
 ]
 
-module.exports={
-    list:list,
-}
+module.exports = {
+  list: list,
+};
