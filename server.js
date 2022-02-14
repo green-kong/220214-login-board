@@ -28,7 +28,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  const { user } = req.session;
+  if (user !== undefined) {
+    res.render('index.html', { user });
+  } else {
+    res.render('index.html');
+  }
 });
 
 app.use('/user', userRouter);
