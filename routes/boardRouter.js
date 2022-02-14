@@ -9,7 +9,8 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/write', (req, res) => {
-  res.render('../views/board/write');
+  const { user } = req.session;
+  res.render('../views/board/write', { user });
 });
 
 router.post('/write', (req, res) => {

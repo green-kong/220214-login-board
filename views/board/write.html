@@ -3,7 +3,8 @@
 <form method="post" action="/board/write">
   <ul>
     <li>제목 : <input type="text" name="subject" /></li>
-    <li>작성자 : <input type="text" name="username" /></li>
+    <input type="hidden" name="username" />
+    <li>작성자 : {{user.username}}</li>
     <li>
       본문 :
       <textarea name="content" id="" cols="30" rows="10"></textarea>
