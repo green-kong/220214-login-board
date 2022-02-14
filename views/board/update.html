@@ -8,7 +8,6 @@
 <h2>수정 페이지</h2>
 
 <form method="post" action="/board/update">
-<<<<<<< HEAD
   <input type="hidden" name="index" value="{{index}}" />
   <ul id="title">
     <li>
@@ -27,20 +26,5 @@
     <a href="/board/list">목록가기</a>
     <input type="submit" value="수정하기" id="udt_btn" />
   </div>
-=======
-    <input type="hidden" name="index" value="{{index}}">
-    <ul>
-        <li>
-            제목 : <input type="text" name="subject" value="{{data.subject}}">
-        </li>
-        <li>
-            작성자 : <input type="text" name="username" value="{{data.username}}">
-        </li>
-        <li>
-            내용 : <input type="text" name="content" value="{{data.content}}">
-        </li>
-    </ul>
-    <input type="submit" value="수정하기">
->>>>>>> 4b25b00d60f9898e100748cc2d3fa4fd5d96ccfb
 </form>
 {% endblock %}
