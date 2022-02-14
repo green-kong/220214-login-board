@@ -2,6 +2,9 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
+const userRouter = require('./routes/userRouter');
+const { Router } = require('express');
+const router = require('./routes/userRouter');
 
 const app = express();
 
@@ -29,3 +32,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000);
+
+router.use(`/user`,userRouter)
