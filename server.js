@@ -20,9 +20,9 @@ const sessionObj = {
 app.use(session(sessionObj));
 
 app.set('view engine', 'html');
-nunjucks.configure({ express: app });
+nunjucks.configure('views', { express: app });
 
-app.use(express.urlencoded('views', { extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('hello server');
