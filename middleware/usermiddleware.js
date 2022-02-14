@@ -39,6 +39,10 @@ exports.join = (req,res)=>{
     res.send(alertmove(`/`,`회원가입이 완료되었습니다.`))
 }
 
+exports.create = (req,res)=>{
+    res.render(`/user/join`)
+}
+
 exports.quit = (req,res)=>{
     const {userdata} = req.session
     if (userdata == user) {
