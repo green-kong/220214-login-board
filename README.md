@@ -33,3 +33,24 @@
 #### - POST board/edit : 글 수정 적용 후 view로 이동
 
 #### - GET board/delete : 글 삭제, 삭제 후, 리스트로 이동.
+
+### STYLE
+
+#### 로그인
+
+login => input id,pw userid, userpw
+
+제 취향...
+id pw
+어떤 사이트들 보면 잘못된 아이디를 입력하면 -> 등록되지 않은 회원입니다.
+id 는 맞는데 pw 다르면 -> 비밀번호가 일치하지 않습니다.
+
+#### 게시판
+
+write -> input name => subject, username, content
+
+### .gitignore
+
+#### node_modules
+
+#### package-lock.json
