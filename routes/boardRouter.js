@@ -3,7 +3,17 @@ const router = express.Router(); //메소드 호출
 const { list } = require('../model/board');
 const { alertmove } = require('../util/alertmove.js');
 
+router.use('/', (req, res, next) => {
+  const { user } = req.session;
+  if (user !== undefined) {
+    next();
+  } else {
+    res.send(alertmove('/', '로그인 후 이용 가능합니다.'));
+  }
+});
+
 router.get('/list', (req, res) => {
+  const { user } = req.session;
   res.render('../views/board/list', {
     list: list,
   });
