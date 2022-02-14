@@ -16,6 +16,8 @@ h2 {
 #content_box {
   width: 600px;
   border-bottom: 1px solid black;
+  padding: 20px 10px;
+  box-sizing: border-box;
 }
 
 #button_container {
@@ -33,6 +35,7 @@ h2 {
   text-align: center;
   line-height: 30px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 #button_container > form > input {
