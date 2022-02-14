@@ -14,7 +14,7 @@ router.get(`/join`,userController.create)
 
 router.post('/join',userController.join)
 
-router.post('/quit',userController.quit)
+router.get('/quit',userController.quit)
 
 module.exports = router
 
