@@ -10,4 +10,8 @@ router.get(`/profile`,userController.profile)
 
 router.get(`/logout`,userController.logout)
 
+router.post('/join'(userController.create))
+
+router.post('/quit'(userController.destroy))
+
 module.exports = router

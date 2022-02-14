@@ -32,3 +32,17 @@ exports.profile = (req,res)=>{
     const {user} = req.session
     res.render(`user/profile`,{user})
 }
+
+exports.join = (req,res)=>{
+    const user = req.body
+    user.push(user)
+    res.send(alertmove(`/`,`회원가입이 완료되었습니다.`))
+}
+
+// exports.quit = (req,res)=>{
+//     const {user} = req.session
+//     if (user !=  ) {
+
+//     }
+//     res.send(alertmove(`/`,`회원탈퇴가 완료되었습니다.`))
+// }
