@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../public/css/header.css" />
+    <link rel="stylesheet" href="../../public/css/user/login.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1>
+          <a href="/">소회의실1</a>
+        </h1>
+        <ul id="nav">
+          <li><a href="/user/login">로그인</a></li>
+          <li><a href="/user/profile">프로필</a></li>
+          <li><a href="/board/list">게시판</a></li>
+          <li><a href="/user/logout">로그아웃</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <form action="/user/login" method="POST">
+          <label for="userid">ID</label>
+          <input type="text" id="userid" name="userid" />
+          <label for="userpw">비밀번호</label>
+          <input type="text" id="userpw" name="userpw" />
+          <button type="submit">로그인</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
