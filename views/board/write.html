@@ -1,25 +1,14 @@
 {% extends "../template/_layout.html" %} {% block content %}
 <h2>작성 페이지</h2>
 <form method="post" action="/board/write">
-    <ul>
-        <li>
-            제목 : <input type="text" name="subject">
-        </li>
-        <li>
-            작성자 : <input type="text" name="username">
-            <!--
-                1. 로그인된 사람의 username을 입력하는것
-                2. update랑 delete을 누를때
-                    2-1. get으로 로그인 되어있는 사람이랑 지금 로그인 된 사람이랑 일치하는지 확인
-                    2-2. 일치하지 않으면 alert(본인이 작성한 글만 수정가능합니다.)
-                3. 로그인이 안된 사람은 접근을 막기
-                4. req.session 있는지 없는지 확인해보고 있으면 접근 가능/아니면 접근 못함
-            -->
-        </li>
-        <li>
-            내용 : <input type="text" name="content">
-        </li>
-    </ul>
-    <input type="submit" value="글쓰기">
+  <ul>
+    <li>제목 : <input type="text" name="subject" /></li>
+    <li>작성자 : <input type="text" name="username" /></li>
+    <li>
+      본문 :
+      <textarea name="content" id="" cols="30" rows="10"></textarea>
+    </li>
+  </ul>
+  <input type="submit" value="글쓰기" />
 </form>
 {% endblock %}
