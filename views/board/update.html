@@ -1,0 +1,19 @@
+{% extends "../template/_layout.html" %}
+{% block content %}
+<h2>수정 페이지</h2>
+
+<form method="post" action="/board/update">
+    <input type="hidden" name="index" value="{{index}}">
+    <ul>
+        <li>
+            제목 : <input type="text" name="subject" value="{{data.subject}}">
+        </li>
+        <li>
+            작성자 : <input type="text" name="username" value="{{data.username}}">
+        </li>
+    </ul>
+    <input type="submit" value="수정하기">
+</form>
+<a href="/board/list">목록가기</a>
+{% endblock %}
+     

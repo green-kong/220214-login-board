@@ -3,6 +3,7 @@ const nunjucks = require('nunjucks');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
 const userRouter = require('./routes/userRouter');
+const boardRouter = require('./routes/boardRouter.js')
 
 const app = express();
 
@@ -28,9 +29,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  const { user } = req.session;
+  if (user !== undefined) {
+    res.render('index.html', { user });
+  } else {
+    res.render('index.html');
+  }
 });
 
 app.use('/user', userRouter);
+app.use('/board',boardRouter)
 
 app.listen(3000);

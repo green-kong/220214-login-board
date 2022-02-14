@@ -1,0 +1,18 @@
+{% extends "../template/_layout.html" %}
+{% block content %}
+<h2>작성 페이지</h2>
+<ul>
+    <li>
+        제목 : {{data.subject}}
+    </li>
+    <li>
+        작성자 : {{data.username}}
+    </li>
+    <form method="post" action="/board/delete">
+        <input type="hidden" name="index" value="{{index}}">
+        <input type="submit" value="삭제하기">
+    </form>
+    <a href="/board/update?index={{index}}">수정</a>
+    <a href="/board/list">목록 가기</a>
+</ul>
+{% endblock %}
