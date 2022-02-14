@@ -10,7 +10,9 @@ router.get(`/profile`, userController.profile);
 
 router.get(`/logout`, userController.logout);
 
-router.post('/join',(userController.create))
+router.get(`/join`,(userController.create))
+
+router.post('/join'(userController.join))
 
 router.post('/quit',(userController.destroy))
 
