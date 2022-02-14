@@ -24,8 +24,10 @@ nunjucks.configure('views', { express: app });
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.send('hello server');
+app.use(express.static('public'));
+
+app.get('/user/login', (req, res) => {
+  res.render('user/login.html');
 });
 
 app.listen(3000);
