@@ -28,7 +28,6 @@ exports.logout = (req, res) => {
   res.send(alertmove(`/`, `로그아웃이 완료되었습니다.`));
 };
 
-<<<<<<< HEAD
 exports.profile = (req,res)=>{
     const {user} = req.session
     res.render(`user/profile`,{user})
@@ -47,9 +46,9 @@ exports.quit = (req,res)=>{
     }
     res.send(alertmove(`/`,`회원탈퇴가 완료되었습니다.`))
 }
-=======
+
 exports.profile = (req, res) => {
   const { user } = req.session;
   res.render(`user/profile`, { user });
 };
->>>>>>> 59c675959cbfe6a6ac974eabadcf4baa620c4e4d
+
