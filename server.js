@@ -2,6 +2,7 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
+const userRouter = require('./routes/userRouter');
 
 const app = express();
 
@@ -30,4 +31,7 @@ app.get('/user/login', (req, res) => {
   res.render('user/login.html');
 });
 
+app.use(`/user`,userRouter)
+
 app.listen(3000);
+
