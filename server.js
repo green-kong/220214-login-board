@@ -3,7 +3,7 @@ const nunjucks = require('nunjucks');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
 const userRouter = require('./routes/userRouter');
-const boardRouter = require('./routes/boardRouter')
+const boardRouter = require('./routes/boardRouter');
 
 const app = express();
 
@@ -38,6 +38,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/user', userRouter);
-app.use('/board',boardRouter)
+app.use('/board', boardRouter);
 
 app.listen(3000);
