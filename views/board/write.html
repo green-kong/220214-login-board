@@ -1,15 +1,14 @@
-{% extends "../template/_layout.html" %}
-{% block content %}
+{% extends "../template/_layout.html" %} {% block content %}
 <h2>작성 페이지</h2>
 <form method="post" action="/board/write">
-    <ul>
-        <li>
-            제목 : <input type="text" name="subject">
-        </li>
-        <li>
-            작성자 : <input type="text" name="username">
-        </li>
-    </ul>
-    <input type="submit" value="글쓰기">
+  <ul>
+    <li>제목 : <input type="text" name="subject" /></li>
+    <li>작성자 : <input type="text" name="username" /></li>
+    <li>
+      본문 :
+      <textarea name="content" id="" cols="30" rows="10"></textarea>
+    </li>
+  </ul>
+  <input type="submit" value="글쓰기" />
 </form>
 {% endblock %}
