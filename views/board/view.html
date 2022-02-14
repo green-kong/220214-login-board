@@ -8,6 +8,9 @@
     <li>
         작성자 : {{data.username}}
     </li>
+    <li>
+        내용 : {{data.content}}
+    </li>
     <form method="post" action="/board/delete">
         <input type="hidden" name="index" value="{{index}}">
         <input type="submit" value="삭제하기">

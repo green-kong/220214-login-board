@@ -49,6 +49,7 @@ router.post('/update',(req,res)=>{
     const item={
         subject:req.body.subject, //입력받은 내용 넣기
         username:req.body.username,
+        content:req.body.content
     }
 
     list[index-1]=item//새 객체를 list에 추가
