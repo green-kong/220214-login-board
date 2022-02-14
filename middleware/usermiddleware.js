@@ -34,15 +34,15 @@ exports.profile = (req,res)=>{
 }
 
 exports.join = (req,res)=>{
-    const user = req.body
-    user.push(user)
+    const {userdata} = req.session
+    user.push(userdata)
     res.send(alertmove(`/`,`회원가입이 완료되었습니다.`))
 }
 
-// exports.quit = (req,res)=>{
-//     const {user} = req.session
-//     if (user !=  ) {
-
-//     }
-//     res.send(alertmove(`/`,`회원탈퇴가 완료되었습니다.`))
-// }
+exports.quit = (req,res)=>{
+    const {userdata} = req.session
+    if (userdata == user) {
+        user.splice(user,1)
+    }
+    res.send(alertmove(`/`,`회원탈퇴가 완료되었습니다.`))
+}
