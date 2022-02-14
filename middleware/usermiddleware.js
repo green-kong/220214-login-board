@@ -1,4 +1,11 @@
-let logincheck = (req,res)=>{
+const user = require(`../model/user`)
+const {alertmove} = require(`../util/alertmove`)
+
+exports.login = (req,res)=>{
+    res.render(`user/login`)
+}
+
+exports.logincheck = (req,res)=>{
     let {userid,userpw} = req.body
     let [item] = user.filter(a=>(a.userid == userid && a.userpw==userpw))
     // let [item2] = user.filter(b=>(b.item1.pw==userpw))
@@ -14,4 +21,13 @@ let logincheck = (req,res)=>{
     }
 }
 
-module.exports = logincheck
+exports.logout = (req,res)=>{
+    req.session.destroy(()=>{
+        req.session
+    })
+    res.send(alertmove(`/`,`로그아웃이 완료되었습니다.`))
+}
+
+exports.profile = (req,res)=>{
+    res.render(`user/profile`)
+}
