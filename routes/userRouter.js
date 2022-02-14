@@ -1,16 +1,13 @@
 const express = require(`express`)
 const router = express.Router()
-const login = require(`../middleware/login`)
-const logincheck = require(`../middleware/logincheck`)
-const profile = require(`../middleware/profile`)
-const logout = require(`../middleware/logout`)
+const userController = require(`../middleware/usermiddleware`)
 
-router.get(`/login`,login) 
+router.get(`/login`,userController.login) 
 
-router.post(`/login`,logincheck)
+router.post(`/login`,userController.logincheck)
 
-router.get(`/profile`,profile)
+router.get(`/profile`,userController.profile)
 
-router.get(`/logout`,logout)
+router.get(`/logout`,userController.logout)
 
 module.exports = router

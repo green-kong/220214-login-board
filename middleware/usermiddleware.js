@@ -10,7 +10,7 @@ exports.logincheck = (req,res)=>{
     let [item] = user.filter(a=>(a.userid == userid && a.userpw==userpw))
     // let [item2] = user.filter(b=>(b.item1.pw==userpw))
     if (item != undefined) {
-        if (item.pw != undefined) {
+        if (item.userpw != undefined) {
             req.session.user = {...item}         
             res.redirect(`/`)
         } else {
@@ -29,5 +29,6 @@ exports.logout = (req,res)=>{
 }
 
 exports.profile = (req,res)=>{
-    res.render(`user/profile`)
+    const {user} = req.session
+    res.render(`user/profile`,{user})
 }
