@@ -10,4 +10,11 @@ router.get(`/profile`, userController.profile);
 
 router.get(`/logout`, userController.logout);
 
-module.exports = router;
+router.get(`/join`,userController.create)
+
+router.post('/join',userController.join)
+
+router.get('/quit',userController.quit)
+
+module.exports = router
+

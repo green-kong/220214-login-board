@@ -1,4 +1,4 @@
-const user = require(`../model/user`);
+let userlist = require(`../model/user`);
 const { alertmove } = require(`../util/alertmove`);
 
 exports.login = (req, res) => {
@@ -7,7 +7,7 @@ exports.login = (req, res) => {
 
 exports.logincheck = (req, res) => {
   let { userid, userpw } = req.body;
-  let [item] = user.filter((a) => a.userid == userid && a.userpw == userpw);
+  let [item] = userlist.filter((a) => a.userid == userid && a.userpw == userpw);
   // let [item2] = user.filter(b=>(b.item1.pw==userpw))
   if (item != undefined) {
     if (item.userpw != undefined) {
@@ -28,7 +28,30 @@ exports.logout = (req, res) => {
   res.send(alertmove(`/`, `로그아웃이 완료되었습니다.`));
 };
 
+exports.profile = (req,res)=>{
+    const {user} = req.session
+    res.render(`user/profile`,{user})
+}
+
+exports.join = (req,res)=>{
+    const userdata = req.body
+    userlist.push(userdata)
+    console.log(userdata)
+    res.send(alertmove(`/`,`회원가입이 완료되었습니다.`))
+}
+
+exports.create = (req,res)=>{
+    res.render(`user/join`)
+}
+
+exports.quit = (req,res)=>{
+    const {user} = req.session
+    userlist = userlist.filter((v) => v.userid !== user.userid);
+    res.send(alertmove(`/user/logout`,`회원탈퇴가 완료되었습니다.`))
+}
+
 exports.profile = (req, res) => {
   const { user } = req.session;
   res.render(`user/profile`, { user });
 };
+
