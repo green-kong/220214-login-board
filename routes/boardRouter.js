@@ -48,10 +48,12 @@ router.get('/view', (req, res) => {
 router.post('/delete', (req, res) => {
   const { user } = req.session;
   const index = req.body.index - 1;
-
+  console.log(user.userid, 'user');
+  console.log(list[index].userid, 'list');
+  console.log(list);
   if (list[index].userid === user.userid) {
     list.splice(index, 1); //인덱스부터 시작해서 1개 제거
-    res.send(alertmove('board/list', '글 삭제가 완료되었습니다.'));
+    res.send(alertmove('/board/list', '글 삭제가 완료되었습니다.'));
   } else {
     res.send(
       alertmove(
@@ -84,15 +86,23 @@ router.get('/update', (req, res) => {
 
 router.post('/update', (req, res) => {
   const index = req.body.index; //입력받은 내용
-  console.log(req.body);
+  const {
+    subject, //
+    username,
+    content,
+    userid,
+  } = req.body;
+
   const item = {
-    subject: req.body.subject, //입력받은 내용 넣기
-    username: req.body.username,
+    subject,
+    username,
+    content,
+    userid,
   };
 
   list[index - 1] = item; //새 객체를 list에 추가
   res.send(
-    alertmove(`board/view?index=${index}`, '글 수정이 완료 되었습니다.')
+    alertmove(`/board/view?index=${index}`, '글 수정이 완료 되었습니다.')
   );
 });
 
